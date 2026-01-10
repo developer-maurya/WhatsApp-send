@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Responsive WhatsApp Button</title>
+
+<style>
+/* ===== COMMON ===== */
+.whatsapp-btn{
+    position:fixed;
+    bottom:20px;
+    right:20px;
+    border-radius:50%;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    box-shadow:0 4px 12px rgba(0,0,0,0.4);
+    z-index:1000;
+    transition:0.3s;
+}
+
+/* BLACK VERSION */
+.whatsapp-black{
+    background:#000;
+}
+.whatsapp-black img{
+    filter:invert(1);
+}
+
+/* WHITE VERSION */
+.whatsapp-white{
+    background:#fff;
+}
+
+/* ===== MOBILE ===== */
+@media(max-width:767px){
+    .whatsapp-btn{
+        width:50px;
+        height:50px;
+        bottom:15px;
+        right:15px;
+    }
+    .whatsapp-btn img{
+        width:28px;
+        height:28px;
+    }
+}
+
+/* ===== LAPTOP / DESKTOP ===== */
+@media(min-width:768px){
+    .whatsapp-btn{
+        width:65px;
+        height:65px;
+    }
+    .whatsapp-btn img{
+        width:36px;
+        height:36px;
+    }
+}
+
+.whatsapp-btn:hover{
+    transform:scale(1.1);
+}
+</style>
+</head>
+
+<body>
+
+<h2>Responsive WhatsApp Button</h2>
+<p>Mobile, Laptop aur Desktop sab me sahi kaam karega.</p>
+
+<!-- ===== BLACK BUTTON (Use this) ===== -->
+<a 
+href="https://api.whatsapp.com/send?phone=919905250848&text=Hi"
+target="_blank"
+class="whatsapp-btn whatsapp-black"
+title="Chat on WhatsApp"
+>
+<img 
+src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg"
+alt="WhatsApp"
+>
+</a>
+
+<!-- ===== WHITE BUTTON (Optional) ===== -->
+<!--
+<a 
+href="https://api.whatsapp.com/send?phone=919905250848&text=Hi"
+target="_blank"
+class="whatsapp-btn whatsapp-white"
+>
+<img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg">
+</a>
+-->
+
+</body>
+</html>
