@@ -3,63 +3,73 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Responsive WhatsApp Button</title>
+<title>Call & WhatsApp Button</title>
 
 <style>
 /* ===== COMMON ===== */
-.whatsapp-btn{
+.contact-wrap{
     position:fixed;
     bottom:20px;
     right:20px;
+    display:flex;
+    flex-direction:column;
+    gap:12px;
+    z-index:1000;
+    font-family:Arial, sans-serif;
+}
+
+.contact-btn{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    text-decoration:none;
+}
+
+.icon{
+    width:60px;
+    height:60px;
+    background:#000;
     border-radius:50%;
     display:flex;
     align-items:center;
     justify-content:center;
     box-shadow:0 4px 12px rgba(0,0,0,0.4);
-    z-index:1000;
     transition:0.3s;
 }
 
-/* BLACK VERSION */
-.whatsapp-black{
-    background:#000;
-}
-.whatsapp-black img{
+.icon img{
+    width:34px;
+    height:34px;
     filter:invert(1);
 }
 
-/* WHITE VERSION */
-.whatsapp-white{
-    background:#fff;
+.text{
+    background:#000;
+    color:#fff;
+    padding:8px 14px;
+    border-radius:20px;
+    font-size:14px;
+    font-weight:600;
+    white-space:nowrap;
 }
 
 /* ===== MOBILE ===== */
 @media(max-width:767px){
-    .whatsapp-btn{
+    .icon{
         width:50px;
         height:50px;
-        bottom:15px;
-        right:15px;
     }
-    .whatsapp-btn img{
-        width:28px;
-        height:28px;
+    .icon img{
+        width:26px;
+        height:26px;
     }
-}
-
-/* ===== LAPTOP / DESKTOP ===== */
-@media(min-width:768px){
-    .whatsapp-btn{
-        width:65px;
-        height:65px;
-    }
-    .whatsapp-btn img{
-        width:36px;
-        height:36px;
+    .text{
+        display:none; /* mobile me text hide */
     }
 }
 
-.whatsapp-btn:hover{
+/* ===== HOVER ===== */
+.icon:hover{
     transform:scale(1.1);
 }
 </style>
@@ -67,33 +77,32 @@
 
 <body>
 
-<h2>Responsive WhatsApp Button</h2>
-<p>Mobile, Laptop aur Desktop sab me sahi kaam karega.</p>
+<h2>Call & WhatsApp Floating Button</h2>
 
-<!-- ===== BLACK BUTTON (Use this) ===== -->
-<a 
-href="https://api.whatsapp.com/send?phone=919905250848&text=Hi"
-target="_blank"
-class="whatsapp-btn whatsapp-black"
-title="Chat on WhatsApp"
->
-<img 
-src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg"
-alt="WhatsApp"
->
-</a>
+<div class="contact-wrap">
 
-<!-- ===== WHITE BUTTON (Optional) ===== -->
-<!--
-<a 
-href="https://api.whatsapp.com/send?phone=919905250848&text=Hi"
-target="_blank"
-class="whatsapp-btn whatsapp-white"
->
-<img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg">
-</a>
--->
+    <!-- 📞 CALL BUTTON -->
+    <a href="tel:+919905250848" class="contact-btn" title="Call Now">
+        <div class="icon">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/8/8c/Phone_font_awesome.svg" alt="Call">
+        </div>
+        <span class="text">Call: +91 99052 50848</span>
+    </a>
+
+    <!-- 💬 WHATSAPP BUTTON -->
+    <a 
+      href="https://api.whatsapp.com/send?phone=919905250848&text=Hi"
+      target="_blank"
+      class="contact-btn"
+      title="Chat on WhatsApp"
+    >
+        <div class="icon">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp">
+        </div>
+        <span class="text">WhatsApp: +91 99052 50848</span>
+    </a>
+
+</div>
 
 </body>
 </html>
-
